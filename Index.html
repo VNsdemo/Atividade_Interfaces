@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Conceito do Aluno</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
+        input, button {
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Inserir Nota do Aluno</h2>
+
+    <input type="number" id="nota" placeholder="Digite a nota (0 a 10)" step="0.1">
+    <br>
+
+    <button onclick="avaliar()">Avaliar</button>
+
+    <div id="resultado"></div>
+
+    <script>
+    
+        const EXCELENCIA = "Parabéns, você atingiu todos os indicadores de avaliação com excelência!";
+        const SATISFATORIO = "Parabéns, você obteve aproveitamento satisfatório nos indicadores de avaliação.";
+        const INSUFICIENTE = "Você não atingiu o mínimo esperado para aprovação...";
+
+        function avaliar() {
+            let nota = parseFloat(document.getElementById("nota").value);
+            let resultado = "";
+
+            if (isNaN(nota)) {
+                resultado = "Digite uma nota válida!";
+            } 
+            else if (nota >= 9.0) {
+                resultado = EXCELENCIA;
+            } 
+            else if (nota >= 7.0) {
+                resultado = SATISFATORIO;
+            } 
+            else {
+                resultado = INSUFICIENTE;
+            }
+
+            document.getElementById("resultado").innerText = resultado;
+        }
+    </script>
+
+</body>
+</html>
