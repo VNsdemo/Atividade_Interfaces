@@ -1,5 +1,5 @@
 package interfaces;
-public class Aluno implements Conceitos {
+public class Aluno implements Interface {
 
     private double nota;
 
